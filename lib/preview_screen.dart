@@ -125,7 +125,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: isLast ? Color(0xFF249191) : Colors.white,
                     foregroundColor: isLast ? Colors.white : Color(0xFF249191),
-                    minimumSize: Size(153, 58),
+                    minimumSize: Size(143, 48),
                     shadowColor: Colors.transparent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -152,12 +152,12 @@ class _PreviewScreenState extends State<PreviewScreen> {
                       Text(
                         isLast ? "Get Started" : "Skip",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const Icon(Icons.arrow_forward_ios, size: 16),
+                      const Icon(Icons.arrow_forward_ios, size: 14),
                     ],
                   ),
                 ),

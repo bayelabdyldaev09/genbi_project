@@ -1,5 +1,8 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:genbi_app/register_preview.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -48,7 +51,14 @@ class LocationScreen extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RegisterPreview(),
+                        ),
+                      );
+                  },
                   child: Row(
                     children: [
                       Text(
@@ -110,7 +120,7 @@ class LocationScreen extends StatelessWidget {
                 SizedBox(height: 134),
                 InkWell(
                   onTap: () {
-                    _requestPermission;
+                    _requestPermission();
                   },
                   child: Container(
                     width: double.infinity,

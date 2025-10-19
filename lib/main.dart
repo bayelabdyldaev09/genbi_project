@@ -1,6 +1,11 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:genbi_app/location_screen.dart';
+import 'package:genbi_app/log_in_screen.dart';
+import 'package:genbi_app/register_preview.dart';
 import 'package:genbi_app/splash_native.dart';
+import 'package:genbi_app/sign_in_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
