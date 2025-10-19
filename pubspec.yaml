@@ -1,0 +1,47 @@
+name: genbi_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  carousel_slider: ^5.1.1
+  flutter_svg: ^2.2.1
+  flutter_native_splash: ^2.4.7
+  google_fonts: ^5.0.0
+  permission_handler: ^12.0.1
+  geolocator: ^10.0.0
+
+flutter_native_splash:
+  image: assets/splash_screen.png
+  fill: true
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/genbi_icon.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+
+  fonts:
+  - family: Inter
+    fonts:
+      - asset: assets\fonts\Inter-Italic.ttf
+      - asset: assets\fonts\Inter.ttf
+        weight: 700
