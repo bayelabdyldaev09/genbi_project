@@ -1,11 +1,12 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:genbi_app/location_screen.dart';
-import 'package:genbi_app/log_in_screen.dart';
-import 'package:genbi_app/register_preview.dart';
-import 'package:genbi_app/splash_native.dart';
-import 'package:genbi_app/sign_in_screen.dart';
+import 'package:genbi_app/menu/menu_screen.dart';
+import 'package:genbi_app/primary_pages/location_screen.dart';
+import 'package:genbi_app/primary_pages/log_in_screen.dart';
+import 'package:genbi_app/primary_pages/register_preview.dart';
+import 'package:genbi_app/primary_pages/splash_native.dart';
+import 'package:genbi_app/primary_pages/sign_in_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTextTheme(),
       ),
-      home: SplashNative()
+      home: MenuScreen()
     );
   }
 }

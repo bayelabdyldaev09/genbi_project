@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:genbi_app/location_screen.dart';
+import 'package:genbi_app/primary_pages/location_screen.dart';
 
 class PreviewScreen extends StatefulWidget {
   const PreviewScreen({super.key});
@@ -123,6 +123,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                    padding: isLast ? EdgeInsets.only(left: 0) : EdgeInsets.only(left: 52),
                     backgroundColor: isLast ? Color(0xFF249191) : Colors.white,
                     foregroundColor: isLast ? Colors.white : Color(0xFF249191),
                     minimumSize: Size(143, 48),

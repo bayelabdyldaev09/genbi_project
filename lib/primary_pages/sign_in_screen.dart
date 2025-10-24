@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:genbi_app/log_in_screen.dart';
+import 'package:genbi_app/primary_pages/log_in_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});

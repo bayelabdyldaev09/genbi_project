@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:genbi_app/sign_in_screen.dart';
+import 'package:genbi_app/primary_pages/sign_in_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -13,6 +13,7 @@ class _LogInScreenState extends State<LogInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsetsGeometry.all(24),
@@ -111,7 +112,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         });
                       },
                     ),
-                    Text('Remember Me'),
+                    Text('Remember Me', style: TextStyle(fontSize: 13)),
                   ],
                 ),
                 TextButton(
@@ -120,7 +121,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     'Forgot Password?',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                      fontSize: 13,
                       color: Color(0xFF249191),
                     ),
                   ),
