@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:genbi_app/menu/explore_screen.dart';
 import 'package:genbi_app/menu/profile_screen.dart';
 import 'package:genbi_app/menu/save_screen.dart';
-import 'package:genbi_app/menu/search_screen.dart';
+import 'package:genbi_app/menu/plan_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -21,7 +21,7 @@ class _MenuScreenState extends State<MenuScreen> {
   final pages = [
     ExploreScreen(),
     SaveScreen(),
-    SearchScreen(),
+    PlanScreen(),
     ProfileScreen(),
   ];
   @override
@@ -62,7 +62,7 @@ class _MenuScreenState extends State<MenuScreen> {
             height: selected ? 50 : 40,
             width: selected ? 50 : 40,
             decoration: BoxDecoration(
-              color: selected ? const Color(0xFFF2F4FC) : Colors.transparent,
+              color: selected ? const Color(0xFFF2F4FC) : Colors.white,
               shape: BoxShape.circle,
             ),
             child: Center(
@@ -80,7 +80,7 @@ class _MenuScreenState extends State<MenuScreen> {
             style: TextStyle(
               color: selected ? const Color(0xFF249191) : Colors.grey,
               fontSize: 12,
-              fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],

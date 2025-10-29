@@ -22,7 +22,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTextTheme(),
       ),
-      home: MenuScreen()
+      home: SplashNative()
     );
   }
 }

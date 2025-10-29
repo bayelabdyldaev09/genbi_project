@@ -39,6 +39,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/chips_nav/
 
   fonts:
   - family: Inter

@@ -1,5 +1,8 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:genbi_app/menu/menu_screen.dart';
 import 'package:genbi_app/primary_pages/sign_in_screen.dart';
 
 class LogInScreen extends StatefulWidget {
@@ -10,8 +13,52 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  String? _usernameError;
+  String? _passwordError;
+
+  final String correctUsername = 'admin';
+  final String correctPassword = '12345';
+
+  void _login() {
+    setState(() {
+      _usernameError = null;
+      _passwordError = null;
+    });
+
+    final username = _usernameController.text.trim();
+    final password = _passwordController.text.trim();
+
+    bool isCorrect = true;
+
+    if (username != correctUsername) {
+      _usernameError = 'Неверное имя пользователя';
+      isCorrect = false;
+    }
+
+    if (password != correctPassword) {
+      _passwordError = 'Неверный пароль';
+      isCorrect = false;
+    }
+
+    if (isCorrect) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MenuScreen()),
+      );
+    } else {
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final username = _usernameController.text.trim();
+    final password = _passwordController.text.trim();
+    final isButtonEnabled =
+        username == correctUsername && password == correctPassword;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -32,20 +79,23 @@ class _LogInScreenState extends State<LogInScreen> {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 57),
-            titleText('Email'),
+            titleText('Name'),
             SizedBox(height: 8),
             TextField(
+              controller: _usernameController,
               style: const TextStyle(color: Colors.black),
               cursorColor: Colors.transparent,
               decoration: inputDecoration(
-                hintText: "Email",
-                assetIconPath: 'assets/sms.svg',
+                hintText: "Name",
+                assetIconPath: 'assets/user.svg',
               ),
+              onChanged: (_) => setState(() {}),
             ),
             SizedBox(height: 16),
             titleText('Password'),
             SizedBox(height: 8),
             TextField(
+              controller: _passwordController,
               style: const TextStyle(color: Colors.black),
               cursorColor: Colors.transparent,
               obscureText: _obscureText,
@@ -77,19 +127,23 @@ class _LogInScreenState extends State<LogInScreen> {
                 errorBorder: outlineInputBorder(Colors.red),
                 focusedErrorBorder: outlineInputBorder(Colors.red),
               ),
+              onChanged: (_) => setState(() {}),
             ),
             SizedBox(height: 42),
-            Container(
-              width: double.infinity,
-              height: 52,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Color(0xFF249191),
-              ),
-              child: Text(
-                'Log In',
-                style: TextStyle(fontSize: 16, color: Colors.white),
+            InkWell(
+              onTap: isButtonEnabled ? _login : null,
+              child: Container(
+                width: double.infinity,
+                height: 52,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Color(0xFF249191),
+                ),
+                child: Text(
+                  'Log In',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
             ),
             SizedBox(height: 14),
