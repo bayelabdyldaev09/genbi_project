@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:genbi_app/primary_pages/preview_screen.dart';
+import 'package:genbi_app/presentation/primary_pages/preview_screen.dart';
 
 class SplashNative extends StatefulWidget {
   const SplashNative({super.key});

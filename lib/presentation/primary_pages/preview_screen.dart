@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:genbi_app/primary_pages/location_screen.dart';
+import 'package:genbi_app/presentation/primary_pages/location_screen.dart';
 
 class PreviewScreen extends StatefulWidget {
   const PreviewScreen({super.key});

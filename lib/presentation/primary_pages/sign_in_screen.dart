@@ -1,64 +1,17 @@
-// ignore_for_file: unused_field
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:genbi_app/menu/menu_screen.dart';
-import 'package:genbi_app/primary_pages/sign_in_screen.dart';
+import 'package:genbi_app/presentation/primary_pages/log_in_screen.dart';
 
-class LogInScreen extends StatefulWidget {
-  const LogInScreen({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<LogInScreen> createState() => _LogInScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _LogInScreenState extends State<LogInScreen> {
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  String? _usernameError;
-  String? _passwordError;
-
-  final String correctUsername = 'admin';
-  final String correctPassword = '12345';
-
-  void _login() {
-    setState(() {
-      _usernameError = null;
-      _passwordError = null;
-    });
-
-    final username = _usernameController.text.trim();
-    final password = _passwordController.text.trim();
-
-    bool isCorrect = true;
-
-    if (username != correctUsername) {
-      _usernameError = 'Неверное имя пользователя';
-      isCorrect = false;
-    }
-
-    if (password != correctPassword) {
-      _passwordError = 'Неверный пароль';
-      isCorrect = false;
-    }
-
-    if (isCorrect) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const MenuScreen()),
-      );
-    } else {
-      setState(() {});
-    }
-  }
-
+class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
-    final username = _usernameController.text.trim();
-    final password = _passwordController.text.trim();
-    final isButtonEnabled =
-        username == correctUsername && password == correctPassword;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -66,36 +19,44 @@ class _LogInScreenState extends State<LogInScreen> {
         padding: EdgeInsetsGeometry.all(24),
         child: Column(
           children: [
-            SizedBox(height: 88),
+            SizedBox(height: 72),
             Text(
-              'Log In To Your Account',
+              'Create Your Account',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16),
             Text(
-              'Welcome back! Please log in to your account to continue where you left off.',
+              'Please fill in your details to create your account and enjoy our services.',
               style: TextStyle(fontSize: 16),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 57),
-            titleText('Name'),
+            SizedBox(height: 26),
+            titleText('Full Name'),
             SizedBox(height: 8),
             TextField(
-              controller: _usernameController,
               style: const TextStyle(color: Colors.black),
               cursorColor: Colors.transparent,
               decoration: inputDecoration(
-                hintText: "Name",
+                hintText: "Full Name",
                 assetIconPath: 'assets/user.svg',
               ),
-              onChanged: (_) => setState(() {}),
+            ),
+            SizedBox(height: 16),
+            titleText('Email'),
+            SizedBox(height: 8),
+            TextField(
+              style: const TextStyle(color: Colors.black),
+              cursorColor: Colors.transparent,
+              decoration: inputDecoration(
+                hintText: 'Email',
+                assetIconPath: 'assets/sms.svg',
+              ),
             ),
             SizedBox(height: 16),
             titleText('Password'),
             SizedBox(height: 8),
             TextField(
-              controller: _passwordController,
               style: const TextStyle(color: Colors.black),
               cursorColor: Colors.transparent,
               obscureText: _obscureText,
@@ -127,60 +88,20 @@ class _LogInScreenState extends State<LogInScreen> {
                 errorBorder: outlineInputBorder(Colors.red),
                 focusedErrorBorder: outlineInputBorder(Colors.red),
               ),
-              onChanged: (_) => setState(() {}),
             ),
             SizedBox(height: 42),
-            InkWell(
-              onTap: isButtonEnabled ? _login : null,
-              child: Container(
-                width: double.infinity,
-                height: 52,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Color(0xFF249191),
-                ),
-                child: Text(
-                  'Log In',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
+            Container(
+              width: double.infinity,
+              height: 52,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Color(0xFF249191),
               ),
-            ),
-            SizedBox(height: 14),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Checkbox(
-                      value: _isChecked,
-                      side: const BorderSide(color: Colors.grey, width: 2),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      checkColor: Color(0xFF249191),
-                      activeColor: Colors.transparent,
-                      onChanged: (bool? newValue) {
-                        setState(() {
-                          _isChecked = newValue!;
-                        });
-                      },
-                    ),
-                    Text('Remember Me', style: TextStyle(fontSize: 13)),
-                  ],
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 13,
-                      color: Color(0xFF249191),
-                    ),
-                  ),
-                ),
-              ],
+              child: Text(
+                'Sign Up',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
             ),
             SizedBox(height: 42),
             Row(
@@ -218,18 +139,18 @@ class _LogInScreenState extends State<LogInScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Don\'t have an account?',
+                  'Already have an account?',
                   style: TextStyle(color: Color(0x704B4F63)),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignInScreen()),
+                      MaterialPageRoute(builder: (context) => LogInScreen()),
                     );
                   },
                   child: Text(
-                    'Sign Up',
+                    'Log In',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
@@ -245,8 +166,6 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 
-  bool _isChecked = false;
-  bool _obscureText = true;
   Container twoBtnsDown(String logo) {
     return Container(
       width: 163,
@@ -259,6 +178,8 @@ class _LogInScreenState extends State<LogInScreen> {
       child: SvgPicture.asset(logo),
     );
   }
+
+  bool _obscureText = true;
 
   Row titleText(String title) {
     return Row(

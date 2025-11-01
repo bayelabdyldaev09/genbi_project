@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:genbi_app/primary_pages/log_in_screen.dart';
-import 'package:genbi_app/primary_pages/sign_in_screen.dart';
+import 'package:genbi_app/presentation/primary_pages/log_in_screen.dart';
+import 'package:genbi_app/presentation/primary_pages/sign_in_screen.dart';
 
 class RegisterPreview extends StatelessWidget {
   const RegisterPreview({super.key});

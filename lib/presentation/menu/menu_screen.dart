@@ -3,10 +3,10 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:genbi_app/menu/explore_screen.dart';
-import 'package:genbi_app/menu/profile_screen.dart';
-import 'package:genbi_app/menu/save_screen.dart';
-import 'package:genbi_app/menu/plan_screen.dart';
+import 'package:genbi_app/presentation/menu/explore_screen.dart';
+import 'package:genbi_app/presentation/menu/profile_screen.dart';
+import 'package:genbi_app/presentation/menu/save_screen.dart';
+import 'package:genbi_app/presentation/menu/plan_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
